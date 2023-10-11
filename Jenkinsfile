@@ -1,5 +1,5 @@
 pipeline {
-    // No 'agent none' here since you want to run stages on specific nodes
+    agent any// No 'agent none' here since you want to run stages on specific nodes
 
     stages {
         stage('edge1') {

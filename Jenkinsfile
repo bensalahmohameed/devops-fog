@@ -11,7 +11,7 @@ pipeline {
                 sh 'touch edge1file'
                 sh 'git add edge1file'
                 sh "git commit -m 'edge1file added from Jenkins'"
-                sh 'git push'
+                sh 'git push origin HEAD:main'
                 // Add more build steps specific to the 'edge1' node here
             }
         }
@@ -24,7 +24,7 @@ pipeline {
                 sh 'touch edge2file'
                 sh 'git add edge2file'
                 sh "git commit -m 'edge2file added from Jenkins'"
-                sh 'git push'
+                sh 'git push origin HEAD:main'
                 // Add more build steps specific to the 'edge2' node here
             }
         }

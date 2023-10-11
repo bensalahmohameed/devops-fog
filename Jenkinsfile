@@ -7,6 +7,8 @@ pipeline {
                 label 'edge1' // Specify the label of the node you want to run this stage on
             }
             steps {
+                sh "git config --global user.name 'bensalahmohameed'"
+                sh "git config --global user.email 'salih@yahoo.com'"
                 sh 'git pull'
                 sh 'touch edge1file'
                 sh 'git add edge1file'

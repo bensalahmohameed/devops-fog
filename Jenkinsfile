@@ -10,7 +10,7 @@ pipeline {
                 sh "git config --global user.name 'bensalahmohameed'"
                 sh "git config --global user.email 'salih@yahoo.com'"
                 sh 'git pull'
-                sh 'python3 encrypt1'
+                sh 'python3 encrypt1.py'
                 // Add more build steps specific to the 'edge1' node here
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                 sh "git config --global user.name 'bensalahmohameed'"
                 sh "git config --global user.email 'salih@yahoo.com'"
                 sh 'git pull'
-                sh 'python3 encrypt2'
+                sh 'python3 encrypt2.py'
                 // Add more build steps specific to the 'edge2' node here
             }
         }

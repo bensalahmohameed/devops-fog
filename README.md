@@ -1,4 +1,4 @@
-# Fog Network Encryption and Decryption
+# Fog Network Distributed Encryption and Decryption
 
 ## Project Overview
 

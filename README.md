@@ -11,8 +11,8 @@ This project encompasses the following core elements:
 - **Client**: This component initiates the process by generating its unique public and private keys via the RSA algorithm. The user is prompted to input the message for encryption.
 
 - **Server**: Comprising two fog nodes, the server deploys Python scripts named "encryption.py." Each of these nodes establishes a connection with the client, receiving half of the message for encryption, along with the client's public key. Both nodes independently perform encryption and subsequently transmit the encrypted content to the client.
-  
-![Architecture FOG TextEncryption](https://github.com/bensalahmohameed/devops-fog/assets/100475606/7b51f63a-1d7d-4ec7-86e3-0eaa64fbd430)
+      ![Architecture FOG textEncryption (1)](https://github.com/bensalahmohameed/devops-fog/assets/100475606/43638fff-522b-4e71-9662-ce3c9a9d9da6)
+
 
 ## Solution Strategy
 

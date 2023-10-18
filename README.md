@@ -42,15 +42,15 @@ To execute the project, follow these instructions:
      ```
 
    - On the first fog node:
-```bash
-  python3 encrypt1.py
-```
+   ```bash
+   python3 encrypt1.py
+   ```
 
    - On the second fog node:
 
-```bash
-python3 encrypt2.py
-```
+   ```bash
+   python3 encrypt2.py
+   ```
 
 4. On the client machine, input the message to be processed as directed.
 
@@ -58,7 +58,7 @@ python3 encrypt2.py
 
 Throughout the process, each machine autonomously creates files to preserve outputs and document the workflow.
 
-Please ensure that any required dependencies are correctly installed, and your environment is configured to support the project.
+Please ensure to change the ip adress of the socket to the actual client ip in all files
 
 
 

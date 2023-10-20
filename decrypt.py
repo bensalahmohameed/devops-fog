@@ -21,10 +21,6 @@ with open(file_path, "r") as file:
 		private_key=private_key.strip()
 private_key=int(private_key)
 
-# file_path = "/home/saliih/Desktop/projet-fog/endcoded1"
-# with open(file_path, "r") as file:
-# 		encodedmsg1=file.readline()
-# 		encodedmsg1=encodedmsg1.strip()
 encodedmsg1=client_socket.recv(1024)	
 encodedmsg1=encodedmsg1.decode('utf-8')
 encodedmsg1=encodedmsg1.split("0x")[1:]
@@ -33,22 +29,12 @@ encodedmsg11=[]
 for c in encodedmsg1:
 	encodedmsg11.append(int(c,16))
 
-
-
-#encodedmsg1=int(encodedmsg1)
-
-# file_path = "/home/saliih/Desktop/projet-fog/endcoded2"
-# with open(file_path, "r") as file:
-# 		encodedmsg2=file.readline()
-# 		encodedmsg2=encodedmsg2.strip()
 encodedmsg2=client_socket2.recv(1024)
 encodedmsg2=encodedmsg2.decode('utf-8')
 encodedmsg2=encodedmsg2.split("0x")[1:]
 encodedmsg22=[]
 for c in encodedmsg2:
 	encodedmsg22.append(int(c,16))
-#encodedmsg2=int(encodedmsg2)
-
 
 file_path = "/home/saliih/Desktop/projet-fog/n"
 with open(file_path, "r") as file:

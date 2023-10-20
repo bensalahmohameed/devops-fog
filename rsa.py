@@ -4,28 +4,6 @@ import random
 import math
 import socket
 
-def receive_file(client_socket, file_path):
-    try:
-        with open(file_path, 'wb') as file:
-            data = client_socket.recv(1024)
-            while data:
-                file.write(data)
-                data = client_socket.recv(1024)
-            print("File received successfully")
-    except Exception as e:
-        print(f"Error receiving file")
-
-def send_file(client_socket, file_path):
-    try:
-        with open(file_path, 'rb') as file:
-            data = file.read(1024)
-            while data:
-                client_socket.send(data)
-                data = file.read(1024)
-            print("File sent successfully")
-    except Exception as e:
-        print(f"Error sending file: {str(e)}")
-
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_ip = '192.168.50.130'  # Use the server's actual IP address
 server_port = 12344
@@ -39,9 +17,6 @@ print(f"Accepted connection from {client_address}")
 
 client_socket2, client_address2 = server_socket.accept()
 print(f"Accepted connection from {client_address2}")
-
-
-
 
 # A set will be the collection of prime numbers,
 # where we can select random primes p and q
@@ -97,7 +72,6 @@ def setkeys():
 			break
 		e += 1
 
-	# d = (k*Φ(n) + 1) / e for some integer k
 	public_key = e
 
 	d = 2
@@ -120,21 +94,16 @@ def setkeys():
 	client_socket2.send(msge)
 	with open(file_path_to_msg, "w") as file:
 		file.write(msg+"\n")
-	# Specify the path to the file you want to send to the client
-	#send_file(client_socket, '/home/saliih/Desktop/projet-fog/msg')
 	
-	#client_socket.send(str(d))
 	with open(file_path_to_privateKey, "w") as file:
-		file.write(str(d)+"\n")
+		file.write(str(private_key)+"\n")
 	
-	ee=str(e)
-	ee=ee.encode('utf-8')
-	client_socket.send(ee)
-	client_socket2.send(ee)
+	public_keye=str(public_key)
+	public_keye=public_keye.encode('utf-8')
+	client_socket.send(public_keye)
+	client_socket2.send(public_keye)
 	with open(file_path_to_publicKey, "w") as file:
-		file.write(str(e)+"\n")
-	# Specify the path to the file you want to send to the client
-	#send_file(client_socket, "/home/saliih/Desktop/projet-fog/public_key")
+		file.write(str(public_key)+"\n")
 	
 	ne=str(n)
 	ne=ne.encode('utf-8')
@@ -142,26 +111,11 @@ def setkeys():
 	client_socket2.send(ne)
 	with open(file_path_to_n, "w") as file:
 		file.write(str(n)+"\n")
-	# Specify the path to the file you want to send to the client
-	#send_file(client_socket, '/home/saliih/Desktop/projet-fog/n')
 	
-
-
+#------------------------------------------------------------------------------------	
+#MAIN
 primefiller()
 setkeys()
-
-#file_names = ['/home/saliih/Desktop/projet-fog/msg', '/home/saliih/Desktop/projet-fog/n', '/home/saliih/Desktop/projet-fog/public_key']
-# Send each file to the client
-#for file_name in file_names:
-#	with open(file_name, 'rb') as file:
-#		file_data = file.read()
-#		client_socket.send(file_data)
-#		print ("file sent succesfully")
-	
-#receive_file(client_socket, 'endcoded1')
-#res1=client_socket.recv(1024)
-#res=res.decode('utf-8')
-
 
 client_socket.close()
 client_socket2.close()
